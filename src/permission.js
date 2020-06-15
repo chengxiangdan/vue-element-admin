@@ -1,3 +1,4 @@
+// 登录的校验和登录后的跳转
 import router from './router'
 import store from './store'
 import { Message } from 'element-ui'

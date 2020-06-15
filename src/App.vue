@@ -9,3 +9,5 @@ export default {
   name: 'App'
 }
 </script>
+
+<!--全局唯一的组件-->

@@ -1,3 +1,4 @@
+// 全局的入口文件
 import Vue from 'vue'
 
 import Cookies from 'js-cookie'

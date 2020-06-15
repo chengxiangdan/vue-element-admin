@@ -32,9 +32,9 @@ module.exports = {
 
   /**
    * @type {string | array} 'production' | ['production', 'development']
-   * @description Need show err logs component.
-   * The default is only used in the production env
-   * If you want to also use it in dev, you can pass ['production', 'development']
+   * @description 需要显示err日志组件
+   * 默认值仅在生产环境中使用
+   * 如果你也想在dev中使用它，你可以通过 ['production', 'development']
    */
   // 错误日志
   errorLog: 'production'
