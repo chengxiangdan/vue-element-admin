@@ -3,7 +3,6 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-/* Layout */
 import Layout from '@/layout'
 
 export const constantRoutes = [
@@ -53,48 +52,31 @@ export const constantRoutes = [
   }
 ]
 
-/**
- * asyncRoutes
- * the routes that need to be dynamically loaded based on user roles
- */
 export const asyncRoutes = [
-  /* {
-    path: '/error',
+  {
+    path: '/book',
     component: Layout,
-    redirect: 'noRedirect',
-    name: 'ErrorPages',
+    redirect: '/book/create', // 访问/book的时候 直接访问/book/create
     meta: {
-      title: 'Error Pages',
-      icon: '404'
+      title: '后台管理', icon: 'documentation', roles: ['admin']
     },
-    children: [
-      {
-        path: '401',
-        component: () => import('@/views/error-page/401'),
-        name: 'Page401',
-        meta: { title: '401', noCache: true }
-      },
-      {
-        path: '404',
-        component: () => import('@/views/error-page/404'),
-        name: 'Page404',
-        meta: { title: '404', noCache: true }
-      }
-    ]
-  },*/
-  // 404 page must be placed at the end !!!
+    children: [{
+      path: '/book/create',
+      component: () => import('@/views/book/create'),
+      meta: { title: '用户', icon: 'edit', roles: ['admin'] }// roles 那些角色
+
+    }]
+  },
   { path: '*', redirect: '/404', hidden: true }
 ]
 
 const createRouter = () => new Router({
-  // mode: 'history', // require service support
   scrollBehavior: () => ({ y: 0 }),
   routes: constantRoutes
 })
 
 const router = createRouter()
 
-// Detail see: https://github.com/vuejs/vue-router/issues/1234#issuecomment-357941465
 export function resetRouter() {
   const newRouter = createRouter()
   router.matcher = newRouter.matcher // reset router
